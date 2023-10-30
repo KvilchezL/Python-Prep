@@ -1,5 +1,14 @@
 class Op_Mates:
-    def __init__(self, lista):
+    def __init__(self, lista,num):
+        if not isinstance(lista,list):
+            #self.lista=[]
+            raise ValueError('Los datos ingresados son inválidos, debe ingresar una lista')
+        
+        for num  in lista:
+            if not isinstance(num,int):
+                #self.lista=[]
+                raise TypeError('La lista debe contener números enteros')
+        
         self.lista = lista
 
     def hallar_primo(self):
@@ -67,3 +76,11 @@ class Op_Mates:
             return fact
         else:
             return 'Inválido!, ingrese solo números enteros'
+        
+        
+# Excepcion
+if __name__ == "__main__":
+    try:
+        Mate1 = Op_Mates([1, 2, 3, 4, 5])  # Esto generará un error y mostrará un mensaje de excepción
+    except Exception as e:
+        print(f"Se produjo un error: {e}")
